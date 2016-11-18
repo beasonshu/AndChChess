@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="pieces_id_array">
+        <item>@drawable/rk</item>
+        <item>@drawable/ra</item>
+        <item>@drawable/rb</item>
+        <item>@drawable/rn</item>
+        <item>@drawable/rr</item>
+        <item>@drawable/rc</item>
+        <item>@drawable/rp</item>
+        <item>@drawable/bk</item>
+        <item>@drawable/ba</item>
+        <item>@drawable/bb</item>
+        <item>@drawable/bn</item>
+        <item>@drawable/br</item>
+        <item>@drawable/bc</item>
+        <item>@drawable/bp</item>
+        <item>@drawable/selected</item>
+    </integer-array>
+    <integer-array name="pieces_id_array2">
+        <item>@drawable/rk2</item>
+        <item>@drawable/ra2</item>
+        <item>@drawable/rb2</item>
+        <item>@drawable/rn2</item>
+        <item>@drawable/rr2</item>
+        <item>@drawable/rc2</item>
+        <item>@drawable/rp2</item>
+        <item>@drawable/bk2</item>
+        <item>@drawable/ba2</item>
+        <item>@drawable/bb2</item>
+        <item>@drawable/bn2</item>
+        <item>@drawable/br2</item>
+        <item>@drawable/bc2</item>
+        <item>@drawable/bp2</item>
+        <item>@drawable/selected2</item>
+    </integer-array>
+</resources>

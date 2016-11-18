@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChineseChess</string>
+    <string name="restart">Restart</string>
+    <string name="retract">Retract</string>
+</resources>
