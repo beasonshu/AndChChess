@@ -12,4 +12,6 @@ public interface IGameView {
     void drawPiece(Canvas canvas, int pc, int xx, int yy);
 
     void drawSelected(Canvas canvas, int xx, int yy);
+
+    void postShowMessage(String text);
 }

@@ -12,7 +12,7 @@ import java.util.Deque;
 
 public class GameLogic {
 
-    private static final int MAX_HISTORY_SIZE = 16;
+    private static final int MAX_HISTORY_SIZE = 512;
     private Position mPosition;
     private Search mSearch;
     private String mCurrentFen;
@@ -28,6 +28,13 @@ public class GameLogic {
         init(gameView, 16, 0);
     }
 
+    /**
+     * init the game
+     *
+     * @param gameView the draw layer
+     * @param level    the AI level
+     * @param startFen the start map
+     */
     private void init(IGameView gameView, int level, int startFen) {
         mChessView = gameView;
         mPosition = new Position();
@@ -37,6 +44,11 @@ public class GameLogic {
         mHistoryList = new ArrayDeque<>();
     }
 
+    /**
+     * draw all the pieces
+     *
+     * @param canvas canvas
+     */
     public void drawPieces(Canvas canvas) {
         for (int x = Position.FILE_LEFT; x <= Position.FILE_RIGHT; x++) {
             for (int y = Position.RANK_TOP; y <= Position.RANK_BOTTOM; y++) {
@@ -138,10 +150,18 @@ public class GameLogic {
 
     private boolean getResult(int response) {
         if (mPosition.isMate()) {
+            String message;
+            if (mPosition.inCheck()) {
+                message = response < 0 ? "You Win!" : "You Lose!";
+            } else {
+                message = "Draw by Stalemate!";
+            }
+            mChessView.postShowMessage(message);
             return true;
         }
         int vlRep = mPosition.repStatus(3);
         if (vlRep > 0) {
+            mChessView.postShowMessage("Draw by Repetition!");
             return true;
         }
         if (response >= 0) {
@@ -159,6 +179,9 @@ public class GameLogic {
     }
 
     private String popHistory() {
+        if (mHistoryList.size() == 0) {
+            mChessView.postShowMessage("No more history!");
+        }
         return mHistoryList.pollLast();
     }
 }

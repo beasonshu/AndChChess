@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.hzy.chchess.R;
 import com.hzy.chchess.game.GameLogic;
@@ -135,5 +136,15 @@ public class GameView extends View implements IGameView {
         float x = xx * mCellWidth;
         float y = yy * mCellWidth;
         canvas.drawBitmap(mPiecesBitmap[14], x, y, mPaint);
+    }
+
+    @Override
+    public void postShowMessage(final String text) {
+        post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
